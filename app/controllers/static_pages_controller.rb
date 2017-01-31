@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
   def about
     #do about about (pun inteneded)
   end
+
+  def contact
+  end
 end
