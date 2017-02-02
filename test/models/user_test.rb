@@ -5,7 +5,8 @@ class UserTest < ActiveSupport::TestCase
     #   assert true
     # end
     def setup
-        @user = User.new(name:"mukul", email:"anandmukul93@gmail.com")
+        @user = User.new(name:"mukul", email:"anandmukul93@gmail.com",
+                         password: "example1", password_confirmation: "example1")
     end
 
     test "do model validation" do
@@ -61,5 +62,24 @@ class UserTest < ActiveSupport::TestCase
         duplicate_user = @user.dup
         @user.save
         assert_not duplicate_user.valid?
+    end
+
+    test "should not add valid user without password" do
+        user_without_password = @user.dup
+        @user.password = nil
+        assert_not @user.valid?, "user : #{@user.email.inspect} should not be valid with password as: #{@user.password.inspect}"
+        @user.password = "example1"
+        @user.password_confirmation = "   "
+        assert_not @user.valid?, "user : #{@user.email.inspect} should not be valid with password not same as password_confirmation"
+    end
+
+    test "password should not be blank" do
+        @user.password = @user.password_confirmation = " " *7 #satisfies length but not blank criteria
+        assert_not @user.valid?
+    end
+
+    test "password should have a minimum length" do
+        @user.password = @user.password_confirmation = "1233s" #satisfies present but not length criteria
+        assert_not @user.valid?
     end
 end
