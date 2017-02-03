@@ -13,7 +13,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                      name: "ana",
                      email: "anandmukul93@gmail.com",
                      password: "123",
-                     password_confirmation: "123"
+                     password_confirmation: "13"
                      }
                  }
         end
@@ -26,7 +26,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     test "valid user signup" do
         get signup_path
         assert_select "form[action=\"#{signup_path}\"]"
-        assert_difference 'Users.count', 1 do
+        assert_difference 'User.count', 1 do
             post signup_path, params: { user: { name:  "Example User",
                                                email: "user@example.com",
                                                password:              "password",
