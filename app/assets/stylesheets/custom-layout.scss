@@ -234,3 +234,25 @@ input {
     color: $state-danger-text;
   }
 }
+
+
+//login
+.short-button{
+  width: 70px;
+}
+
+.alternate-area{
+  margin:0px 10px;
+  vertical-align: bottom;
+  font-size:14px;
+  font-weight: 500;
+  display:inline-block;
+  #sign-up-span{
+    //color:cornflowerblue;
+    text-decoration: underline;
+  }
+}
+
+.flash-message{
+  margin-top:20px;
+}

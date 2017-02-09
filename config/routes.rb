@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
     get 'sessions/new'
 
-    resources :users
+    resources :users, :sessions
 
     root 'static_pages#home', as:'index'
 
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     get '/about', to: 'static_pages#about'
 
-    get '/contact' => 'static_pages#contact'
+    get '/contact_page' => 'static_pages#contact'
 
     get '/signup', to: 'users#new'
 
@@ -20,6 +20,11 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
 
     delete '/logout', to:'sessions#destroy'
+
+    namespace :phonebook do
+        get '/search', to: 'contacts#search'
+        get '/add', to:'contacts#add'
+    end
 
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,15 +1,15 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+    def home
+    end
 
-  def help
-  end
+    def help
+    end
 
-  def about
-    #do about about (pun inteneded)
-  end
+    def about
+        #do about about (pun inteneded)
+    end
 
-  def contact
-  end
+    def contact
+    end
 
 end
