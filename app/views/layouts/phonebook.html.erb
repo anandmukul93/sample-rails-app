@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phone Directory</title>
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'phonebook/phonebook', media: 'all' %>
+	<%= javascript_include_tag 'phonebook/phonebook' %>
+	<%= csrf_meta_tags %>
+
+	<%= render 'layouts/shim'  %>
+</head>
+<body>
+
+<%= render 'phonebook/header' %>
+<% flash.each do |message_type, message| %>
+	<div class="flash-message container alert alert-<%= message_type %>"> <%= message %>
+	</div>
+	<%# content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<% end %>
+<div class="main container">
+	<%= yield %>
+	<%= debug(params) if Rails.env.development? %>
+</div>
+<%= render 'phonebook/footer' %>
+</body>
+</html>
+

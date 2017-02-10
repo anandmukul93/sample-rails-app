@@ -1,0 +1,16 @@
+<h1>Search Contacts</h1>
+<div class="phone-app" ng-app="phoneDirectoryApp">
+	<%= form_for(:contact, url:phonebook_search_path) do |f|%>
+	<div class="row search-bar" ng-controller ="searchController">
+		<i class="glyphicon glyphicon-search"></i>
+		<input type="text" ng-bind="textInput" class="form-control" name="contact[input]" placeholder="Name or Number">
+		<input type="submit" class="btn btn-primary" value="search">
+	</div>
+	<% end %>
+	<div class="col-md-12 hr">
+		<hr>
+	</div>
+	<div class="row search-results" ng-controller="searchResultsController">
+
+	</div>
+</div>
