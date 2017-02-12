@@ -27,7 +27,22 @@ $black : #000000;
 		display:block;
 	}
 }
+//forms
 
+.checkbox {
+	margin-top: -10px;
+	margin-bottom: 10px;
+	span {
+		margin-left: 20px;
+		font-weight: 500;
+		font-size:15px;
+	}
+}
+
+#session_remember_me {
+	width: auto;
+	margin-left: 0;
+}
 
 /* miscellaneous */
 
@@ -257,14 +272,14 @@ input {
 
 //login
 .short-button{
-	width: 70px;
+	font-size:15px;
 }
 
 .alternate-area{
-	margin:0px 10px;
+	margin:10px 0px;
 	vertical-align: bottom;
-	font-size:14px;
-	font-weight: 500;
+	font-size:15px;
+	font-weight: 600;
 	display:inline-block;
 	#sign-up-span{
 		//color:cornflowerblue;
