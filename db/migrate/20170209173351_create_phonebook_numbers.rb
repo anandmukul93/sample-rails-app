@@ -3,7 +3,6 @@ class CreatePhonebookNumbers < ActiveRecord::Migration[5.0]
     create_table :phonebook_numbers do |t|
       t.string :number
       t.string :countrycode
-
       t.timestamps
     end
   end

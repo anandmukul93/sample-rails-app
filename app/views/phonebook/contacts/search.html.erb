@@ -1,6 +1,6 @@
 <h1>Search Contacts</h1>
 <div class="phone-app" ng-app="phoneDirectoryApp">
-	<%= form_for(:contact, url:phonebook_search_path) do |f|%>
+	<%= form_for(:contact, url:phonebook_search_path, method: 'get') do |f|%>
 	<div class="row search-bar" ng-controller ="searchController">
 		<i class="glyphicon glyphicon-search"></i>
 		<input type="text" ng-bind="textInput" class="form-control" name="contact[input]" placeholder="Name or Number">
@@ -11,6 +11,23 @@
 		<hr>
 	</div>
 	<div class="row search-results" ng-controller="searchResultsController">
-
+		<%= will_paginate @contact_results %>
+		<table style="width:100%">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% @contact_results.each do |contact| %>
+				<tr>
+					<td><%= contact.name %></td>
+					<td><%= contact.number %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+		<%= will_paginate @contact_results %>
 	</div>
 </div>

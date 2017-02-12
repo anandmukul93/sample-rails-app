@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202135201) do
+ActiveRecord::Schema.define(version: 20170211054548) do
+
+  create_table "phonebook_contact_attributes", force: :cascade do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phonebook_contact_people", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phonebook_numbers", force: :cascade do |t|
+    t.string   "number"
+    t.string   "countrycode"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.decimal  "contact_person_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
