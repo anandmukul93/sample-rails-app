@@ -64,7 +64,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 		end
 		assert_redirected_to users_path
 		delete logout_path
-
 		log_in_as(@user)
 
 		assert_no_difference 'User.count' do
@@ -77,5 +76,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 		end
 		assert_redirected_to users_path
 	end
-
 end
