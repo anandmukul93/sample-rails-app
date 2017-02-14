@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			else
 				forget(@user)
 			end
-			redirect_to @user
+			redirect_back_or @user
 		else
 			#redirect to login page again with error
 			flash.now[:danger] = 'Invalid Email/Password combination'
